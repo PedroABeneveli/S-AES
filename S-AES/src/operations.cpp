@@ -45,3 +45,19 @@ NibbleMatrix subNibbles(NibbleMatrix data, bool print) {
 
     return result;
 }
+
+NibbleMatrix shiftRows(NibbleMatrix data, bool print) {
+    NibbleMatrix result = data;
+
+    swap(result.nibbles[1][0], result.nibbles[1][1]);
+
+    if (print) {
+        cout << "shiftRows:\n";
+        cout << "    |   Data    |  Shifted  |\n";
+        cout << "    | " << data.nibbles[0][0] << " " << data.nibbles[0][1] << " | " << result.nibbles[0][0] << " " << result.nibbles[0][1] << " |\n";
+        cout << "    | " << data.nibbles[1][0] << " " << data.nibbles[1][1] << " | " << result.nibbles[1][0] << " " << result.nibbles[1][1] << " |\n";
+        cout << "\n";
+    }
+
+    return result;
+}
