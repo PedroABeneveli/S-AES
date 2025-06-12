@@ -13,6 +13,9 @@ struct NibbleMatrix {
 
     // XOR
     NibbleMatrix operator^(const NibbleMatrix &o);
+
+    // Multiplicacao de Matrixes em GF(16)
+    NibbleMatrix operator*(const NibbleMatrix &o);
 };
 
 #endif

@@ -4,7 +4,7 @@ CXXFLAGS = -Iheaders -Wall
 SRC_DIR = src
 HEADER_DIR = headers
 
-SOURCES = $(SRC_DIR)/teste.cpp $(SRC_DIR)/NibbleMatrix.cpp $(SRC_DIR)/operations.cpp
+SOURCES = $(SRC_DIR)/teste.cpp $(SRC_DIR)/NibbleMatrix.cpp $(SRC_DIR)/operations.cpp $(SRC_DIR)/GaloisField.cpp
 
 OUTPUT = saes
 
