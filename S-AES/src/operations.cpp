@@ -61,3 +61,24 @@ NibbleMatrix shiftRows(NibbleMatrix data, bool print) {
 
     return result;
 }
+
+NibbleMatrix mixColumns(NibbleMatrix data, bool print) {
+    NibbleMatrix mixer, result;;
+
+    // matriz escolhida pelo algoritmo para realizar esse mix
+    mixer.nibbles[0][0] = 1; mixer.nibbles[0][1] = 4;
+    mixer.nibbles[1][0] = 4; mixer.nibbles[1][1] = 1;
+
+    // Na especificacao, a multiplicacao eh feita uma coluna por vez, mas pela propria propriedade de multiplicacoes de matrizes, se multiplicarmos o mixer pela matrix da mensagem inteira, teremos o mesmo resultado
+    result = mixer * data;
+
+    if (print) {
+        cout << "mixColumns:\n";
+        cout << "    |   Data    |   Mixed   |\n";
+        cout << "    | " << data.nibbles[0][0] << " " << data.nibbles[0][1] << " | " << result.nibbles[0][0] << " " << result.nibbles[0][1] << " |\n";
+        cout << "    | " << data.nibbles[1][0] << " " << data.nibbles[1][1] << " | " << result.nibbles[1][0] << " " << result.nibbles[1][1] << " |\n";
+        cout << "\n";
+    }
+
+    return result;
+}
