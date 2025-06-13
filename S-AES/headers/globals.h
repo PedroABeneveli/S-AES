@@ -3,6 +3,7 @@
 
 #include <bitset>
 #include <iostream>
+#include <array>
 
 using namespace std;
 

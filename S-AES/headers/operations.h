@@ -15,4 +15,9 @@ NibbleMatrix shiftRows(NibbleMatrix data, bool print=false);
 
 NibbleMatrix mixColumns(NibbleMatrix data, bool print=false);
 
+// funcao g utilizada na KeyExpansion
+bitset<8> g_function(bitset<8> half, int index, bool print=false);
+
+array<NibbleMatrix, 3> keyExpansion(int16_t key, bool print=false);
+
 #endif
