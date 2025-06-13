@@ -16,6 +16,8 @@ struct NibbleMatrix {
 
     // Multiplicacao de Matrixes em GF(16)
     NibbleMatrix operator*(const NibbleMatrix &o);
+
+    int16_t to_int16();
 };
 
 #endif

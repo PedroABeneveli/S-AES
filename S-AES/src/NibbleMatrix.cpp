@@ -41,3 +41,14 @@ NibbleMatrix NibbleMatrix::operator*(const NibbleMatrix &o) {
 
     return result;
 }
+
+int16_t NibbleMatrix::to_int16() {
+    int16_t result = 0;
+
+    result += ((int) nibbles[0][0].to_ulong()) << 12;
+    result += ((int) nibbles[1][0].to_ulong()) << 8;
+    result += ((int) nibbles[0][1].to_ulong()) << 4;
+    result += ((int) nibbles[1][1].to_ulong());
+
+    return result;
+}
