@@ -136,7 +136,7 @@ array<NibbleMatrix, 3> keyExpansion(int16_t key, bool print) {
     int16_t roundKey;
 
     if (print) {
-        cout << "keyExpansion com a chave " << bitset<16>(key) << ":\n";
+        cout << "keyExpansion com a chave " << bitset<16>(key) << ":\n\n";
     }
 
     roundKey = key;
@@ -161,6 +161,7 @@ array<NibbleMatrix, 3> keyExpansion(int16_t key, bool print) {
         cout << "    Key0 = " << keys[0].nibbles[0][0] << " " << keys[0].nibbles[1][0] << " " << keys[0].nibbles[0][1] << " " << keys[0].nibbles[1][1] << "\n";
         cout << "    Key1 = " << keys[1].nibbles[0][0] << " " << keys[1].nibbles[1][0] << " " << keys[1].nibbles[0][1] << " " << keys[1].nibbles[1][1] << "\n";
         cout << "    Key2 = " << keys[2].nibbles[0][0] << " " << keys[2].nibbles[1][0] << " " << keys[2].nibbles[0][1] << " " << keys[2].nibbles[1][1] << "\n";
+        cout << "\n";
     }
 
     return keys;
