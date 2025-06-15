@@ -66,7 +66,6 @@ string encrypt_saes_ecb(string plain_text, int16_t key, bool print) {
 
     // assumindo que o texto tem quantidade par de caracteres
     for (int i = 0 ; i < (int) plain_text.size() ; i += 2) {
-        cout << "oi1\n";
         plain_block = (((int16_t) plain_text[i]) << 8) + ((int16_t) plain_text[i+1]);
 
         cipher_block = saes_encrypt(plain_block, key);
