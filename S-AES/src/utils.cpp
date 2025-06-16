@@ -3,7 +3,7 @@
 // essa string eh equivalente a tabela de conversao, pois cada indice da string corresponde ao caracter equivalente em base64
 string table = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
-string to_base64(int8_t c1, int8_t c2, int8_t c3) {
+string to_base64(uint8_t c1, uint8_t c2, uint8_t c3) {
     int idx; 
     string text = "";
 
@@ -30,7 +30,7 @@ string to_base64(int8_t c1, int8_t c2, int8_t c3) {
     return text;
 }
 
-string to_base64(int8_t c1, int8_t c2) {
+string to_base64(uint8_t c1, uint8_t c2) {
     int idx;
     string text = "";
 
@@ -53,7 +53,7 @@ string to_base64(int8_t c1, int8_t c2) {
     return text;
 }
 
-string to_base64(int8_t c1) {
+string to_base64(uint8_t c1) {
     int idx;
     string text = "";
 

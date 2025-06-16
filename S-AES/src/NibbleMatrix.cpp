@@ -2,8 +2,8 @@
 #include "GaloisField.h"
 
 NibbleMatrix::NibbleMatrix() {}
-NibbleMatrix::NibbleMatrix(int16_t val) {
-    nibbles[0][0] = val >> 12;
+NibbleMatrix::NibbleMatrix(uint16_t val) {
+    nibbles[0][0] = (val >> 12) & 0xF;
     nibbles[1][0] = (val >> 8) & 0xF;
     nibbles[0][1] = (val >> 4) & 0xF;
     nibbles[1][1] = val & 0xF;
@@ -42,13 +42,13 @@ NibbleMatrix NibbleMatrix::operator*(const NibbleMatrix &o) {
     return result;
 }
 
-int16_t NibbleMatrix::to_int16() {
-    int16_t result = 0;
+uint16_t NibbleMatrix::to_int16() {
+    int result = 0;
 
     result += ((int) nibbles[0][0].to_ulong()) << 12;
     result += ((int) nibbles[1][0].to_ulong()) << 8;
     result += ((int) nibbles[0][1].to_ulong()) << 4;
     result += ((int) nibbles[1][1].to_ulong());
 
-    return result;
+    return (result & 0xffff);
 }

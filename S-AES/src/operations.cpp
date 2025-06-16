@@ -128,12 +128,12 @@ bitset<8> g_function(bitset<8> half, int index, bool print) {
     return result;
 }
 
-array<NibbleMatrix, 3> keyExpansion(int16_t key, bool print) {
+array<NibbleMatrix, 3> keyExpansion(uint16_t key, bool print) {
     // Ja retorno NibbleMatrix para facilitar na hora de realizar a criptografia
     array<NibbleMatrix, 3> keys;
     bitset<8> L, R, g_return;
     int num_L, num_R;
-    int16_t roundKey;
+    uint16_t roundKey;
 
     if (print) {
         cout << "keyExpansion com a chave " << bitset<16>(key) << ":\n\n";

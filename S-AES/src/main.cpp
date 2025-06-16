@@ -5,8 +5,8 @@
 int main() {
     int op;
     string temp, cipher_text_ecb;
-    int16_t key, plain_text, cipher_text;
-    int8_t byte1, byte2;
+    uint16_t key, plain_text, cipher_text;
+    uint8_t byte1, byte2;
 
     do {
         cout << "\n------------------------------------------------------------------------------------------------\n";
@@ -40,7 +40,7 @@ int main() {
                 continue;
             }
 
-            key = (int16_t) bitset<16>(temp).to_ulong();
+            key = (uint16_t) bitset<16>(temp).to_ulong();
 
             cout << "\nDigite o texto em claro (2 caracteres):\n";
             getline(cin, temp);
@@ -50,10 +50,10 @@ int main() {
                 continue;
             }
 
-            plain_text = (((int16_t) temp[0]) << 8) + ((int16_t) temp[1]);
+            plain_text = (((uint16_t) temp[0]) << 8) + ((uint16_t) temp[1]);
 
             cipher_text = saes_encrypt(plain_text, key, true);
-            byte1 = cipher_text >> 8;
+            byte1 = (cipher_text >> 8) & 0xff;
             byte2 = cipher_text & 0xff;
 
             cout << "Texto cifrado em hexadecimal: 0x" << setfill('0') << setw(4) << right << hex << cipher_text << "\n";
@@ -86,7 +86,7 @@ int main() {
                 continue;
             }
 
-            key = (int16_t) bitset<16>(temp).to_ulong();
+            key = (uint16_t) bitset<16>(temp).to_ulong();
 
             cout << "\nDigite o texto em claro:\n";
             getline(cin, temp);

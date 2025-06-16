@@ -9,7 +9,7 @@ struct NibbleMatrix {
 
     // Construtores
     NibbleMatrix();
-    NibbleMatrix(int16_t val);
+    NibbleMatrix(uint16_t val);
 
     // XOR
     NibbleMatrix operator^(const NibbleMatrix &o);
@@ -17,7 +17,7 @@ struct NibbleMatrix {
     // Multiplicacao de Matrixes em GF(16)
     NibbleMatrix operator*(const NibbleMatrix &o);
 
-    int16_t to_int16();
+    uint16_t to_int16();
 };
 
 #endif

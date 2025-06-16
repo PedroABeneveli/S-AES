@@ -7,6 +7,7 @@
 #include <iomanip>
 #include <string>
 #include <queue>
+#include <cstdint>
 
 using namespace std;
 

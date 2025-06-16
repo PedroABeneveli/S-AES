@@ -27,13 +27,17 @@ GaloisField16 GaloisField16::operator*(const GaloisField16 &o) {
     mul1 = polinomial;
     mul2 = o.polinomial;
     while (mul2 != 0) {
+
+        // se o digito do numero de "baixo" for 1, somamos a resposta da multiplicacao
         if (mul2[0])
             result ^= mul1;
         
+        // verificamos se um termo x**4 sera criado, para troca-lo por x+1 depois de deslizar o numero de "cima"
         add_3 = false;
         if (mul1[3])
             add_3 = true;
 
+        // deslizamos o numero de "cima" para a esquerda, como no algoritmo classico da multiplicacao, e o de "baixo" para direita para descartar os bits ja analisados
         mul1 <<= 1;
         mul2 >>= 1;
         if (add_3)

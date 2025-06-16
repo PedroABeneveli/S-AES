@@ -3,7 +3,7 @@
 #include "operations.h"
 #include "utils.h"
 
-int16_t saes_encrypt(int16_t plain_text, int16_t key, bool print) {
+uint16_t saes_encrypt(uint16_t plain_text, uint16_t key, bool print) {
     NibbleMatrix message(plain_text);
     array<NibbleMatrix, 3> keys = keyExpansion(key, print);
 
@@ -53,20 +53,20 @@ int16_t saes_encrypt(int16_t plain_text, int16_t key, bool print) {
         cout << "\n";
     }
 
-    int16_t cipher_text = message.to_int16();
+    uint16_t cipher_text = message.to_int16();
 
     return cipher_text;
 }
 
-string encrypt_saes_ecb(string plain_text, int16_t key, bool print) {
-    queue<int8_t> to_process;   // bytes a serem convertidos em base64
+string encrypt_saes_ecb(string plain_text, uint16_t key, bool print) {
+    queue<uint8_t> to_process;   // bytes a serem convertidos em base64
     string cipher_text = "";
-    int16_t plain_block, cipher_block;
-    int8_t half1, half2, half3;
+    uint16_t plain_block, cipher_block;
+    uint8_t half1, half2, half3;
 
     // assumindo que o texto tem quantidade par de caracteres
     for (int i = 0 ; i < (int) plain_text.size() ; i += 2) {
-        plain_block = (((int16_t) plain_text[i]) << 8) + ((int16_t) plain_text[i+1]);
+        plain_block = (((uint16_t) plain_text[i]) << 8) + ((uint16_t) plain_text[i+1]);
 
         cipher_block = saes_encrypt(plain_block, key);
 
@@ -74,7 +74,7 @@ string encrypt_saes_ecb(string plain_text, int16_t key, bool print) {
             cout << "Bloco " << dec << i/2 << " em hexadecimal: 0x" << setfill('0') << setw(4) << right << hex << cipher_block << "\n";
         }
 
-        half1 = cipher_block >> 8;
+        half1 = (cipher_block >> 8) & 0xff;
         half2 = cipher_block & 0xff;
         to_process.push(half1);
         to_process.push(half2);
